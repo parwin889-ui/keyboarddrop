@@ -1,6 +1,6 @@
 # KeyboardDrop
 
-轻量级键盘按键重映射工具，支持 macOS 和 Windows。
+轻量级键盘按键重映射工具，支持 macOS、Windows 和 Linux。
 
 ## 功能特性
 
@@ -8,7 +8,7 @@
 - 低延迟、轻量级
 - 简单的 JSON 配置文件
 - 系统托盘驻留
-- 支持 macOS 和 Windows 双平台
+- 支持 macOS、Windows 和 Linux 三平台
 
 ## 快速开始
 
@@ -31,6 +31,16 @@ bin\Release\net8.0-windows\KeyboardDrop.exe
 ```
 
 配置文件：`%APPDATA%\KeyboardDrop\config.json`
+
+### Linux
+
+```bash
+cd linux
+pip install -r requirements.txt
+sudo python3 main.py
+```
+
+配置文件：`~/.config/keyboarddrop/config.json`
 
 ## 配置示例
 
