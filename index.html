@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KeyboardDrop - 键盘自定义工具</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--accent:#1f6feb;--accent2:#e94560;--text:#c9d1d9;--heading:#f0f6fc;--border:#30363d;--code:#e94560}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.hero{text-align:center;padding:80px 20px 60px;background:linear-gradient(180deg,#0d1117 0%,#161b22 100%);border-bottom:1px solid var(--border)}
+.hero h1{font-size:3em;color:var(--heading);margin-bottom:12px}
+.hero .tagline{font-size:1.3em;color:#8b949e;margin-bottom:32px}
+.badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.badge{background:var(--card);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:.85em;color:#8b949e}
+.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:10px;font-size:1.1em;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#388bfd;box-shadow:0 0 20px rgba(31,111,235,.4)}
+.btn-secondary{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--accent)}
+section{max-width:900px;margin:0 auto;padding:60px 20px}
+section h2{font-size:1.8em;color:var(--heading);margin-bottom:24px;padding-left:14px;border-left:4px solid var(--accent2)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.feature{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;transition:border-color .2s}
+.feature:hover{border-color:var(--accent)}
+.feature h3{color:#8be9fd;font-size:1.15em;margin-bottom:8px}
+.feature p{color:#8b949e;font-size:.95em}
+.action-types{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.action-type{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
+.action-type .icon{font-size:2em;margin-bottom:8px}
+.action-type .name{color:var(--accent);font-weight:600;font-size:.95em}
+.action-type .desc{color:#8b949e;font-size:.85em;margin-top:4px}
+.code-block{background:#0d1b2a;border:1px solid var(--border);border-radius:8px;padding:20px;margin:16px 0;overflow-x:auto}
+.code-block pre{color:#a5d7e8;font-family:"SF Mono",monospace;font-size:.9em;white-space:pre}
+.code-block code{background:none;padding:0}
+.download-section{text-align:center;padding:80px 20px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.download-options{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:32px 0}
+.download-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:32px;width:280px;text-align:center;transition:border-color .2s}
+.download-card:hover{border-color:var(--accent)}
+.download-card .platform{font-size:3em;margin-bottom:12px}
+.download-card h3{color:var(--heading);font-size:1.3em;margin-bottom:8px}
+.download-card .info{color:#8b949e;font-size:.85em;margin-bottom:20px}
+.download-card .btn{width:100%;justify-content:center}
+.steps{counter-reset:step}
+.step{position:relative;padding-left:40px;margin-bottom:20px}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.step h3{color:#8be9fd;margin-bottom:4px}
+.step p{color:#8b949e}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:12px}
+.faq-item h3{color:#8be9fd;margin-bottom:8px;font-size:1.05em}
+.faq-item p{color:#8b949e}
+.tip{background:rgba(31,111,235,.1);border-left:4px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0}
+.footer{text-align:center;padding:40px 20px;color:#484f58;font-size:.85em}
+.footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>KeyboardDrop</h1>
+    <p class="tagline">键盘自定义工具 - 重映射按键,绑定操作,效率倍增</p>
+    <div class="badges">
+        <span class="badge">macOS 12+</span>
+        <span class="badge">Windows 10+</span>
+        <span class="badge">12 种操作类型</span>
+        <span class="badge">图形化设置</span>
+        <span class="badge">中英文双语</span>
+    </div>
+    <div class="btn-group">
+        <a href="#download" class="btn btn-primary">立即下载</a>
+        <a href="#tutorial" class="btn btn-secondary">使用教程</a>
+    </div>
+</div>
+
+<section id="features">
+    <h2>核心功能</h2>
+    <div class="features">
+        <div class="feature">
+            <h3>按键重映射</h3>
+            <p>把任意按键映射为另一个按键,如 caps_lock 变成 escape,right_command 变成 left_control</p>
+        </div>
+        <div class="feature">
+            <h3>自定义操作</h3>
+            <p>把按键绑定到应用启动、Shell 命令、SSH、截图、音量控制等 12 种操作</p>
+        </div>
+        <div class="feature">
+            <h3>图形化设置</h3>
+            <p>内置可视化设置界面,表格编辑映射,保存即生效,无需手动编辑 JSON</p>
+        </div>
+        <div class="feature">
+            <h3>中英文切换</h3>
+            <p>菜单栏一键切换界面语言,教程页面同步切换,方便国际用户</p>
+        </div>
+        <div class="feature">
+            <h3>菜单栏常驻</h3>
+            <p>轻量菜单栏应用,暂停/恢复/重载一键操作,占用极低</p>
+        </div>
+        <div class="feature">
+            <h3>跨平台</h3>
+            <p>macOS 基于 CGEventTap,Windows 基于 WH_KEYBOARD_LL,同一套配置格式</p>
+        </div>
+    </div>
+</section>
+
+<section id="actions">
+    <h2>12 种操作类型</h2>
+    <div class="action-types">
+        <div class="action-type"><div class="icon">⌨</div><div class="name">remap</div><div class="desc">按键重映射</div></div>
+        <div class="action-type"><div class="icon">📦</div><div class="name">app</div><div class="desc">启动应用</div></div>
+        <div class="action-type"><div class="icon">⚡</div><div class="name">command</div><div class="desc">Shell 命令</div></div>
+        <div class="action-type"><div class="icon">🔗</div><div class="name">ssh</div><div class="desc">SSH 连接</div></div>
+        <div class="action-type"><div class="icon">📄</div><div class="name">file</div><div class="desc">打开文件</div></div>
+        <div class="action-type"><div class="icon">📜</div><div class="name">script</div><div class="desc">执行脚本</div></div>
+        <div class="action-type"><div class="icon">📸</div><div class="name">screenshot</div><div class="desc">截图</div></div>
+        <div class="action-type"><div class="icon">🌐</div><div class="name">url</div><div class="desc">打开网址</div></div>
+        <div class="action-type"><div class="icon">🔊</div><div class="name">volume</div><div class="desc">音量控制</div></div>
+        <div class="action-type"><div class="icon">🎵</div><div class="name">media</div><div class="desc">媒体控制</div></div>
+        <div class="action-type"><div class="icon">⌨️</div><div class="name">text</div><div class="desc">文本输入</div></div>
+        <div class="action-type"><div class="icon">🖥</div><div class="name">system</div><div class="desc">系统操作</div></div>
+    </div>
+</section>
+
+<section id="download">
+    <div class="download-section">
+        <h2>下载安装</h2>
+        <div class="download-options">
+            <div class="download-card">
+                <div class="platform"></div>
+                <h3>macOS</h3>
+                <p class="info">DMG 安装包<br>支持 macOS 12+<br>152 KB</p>
+                <a href="KeyboardDrop-1.3.0.dmg" class="btn btn-primary" download>下载 DMG</a>
+            </div>
+            <div class="download-card">
+                <div class="platform">⊞</div>
+                <h3>Windows</h3>
+                <p class="info">源码 + 编译脚本<br>需 .NET 8 SDK<br>跨平台配置</p>
+                <a href="KeyboardDrop-Windows.zip" class="btn btn-primary" download>下载 ZIP</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="tutorial">
+    <h2>快速上手</h2>
+    <div class="steps">
+        <div class="step">
+            <h3>下载安装</h3>
+            <p>macOS: 双击 DMG,拖入 Applications;Windows: 解压后运行 build.bat</p>
+        </div>
+        <div class="step">
+            <h3>授予权限</h3>
+            <p>macOS: 系统设置 → 隐私与安全性 → 辅助功能 → 启用 KeyboardDrop;也可菜单栏点击「打开辅助功能设置」</p>
+        </div>
+        <div class="step">
+            <h3>配置映射</h3>
+            <p>菜单栏点击键盘图标 → 设置... → 可视化编辑映射表格 → 保存并应用</p>
+        </div>
+        <div class="step">
+            <h3>查看教程</h3>
+            <p>菜单栏 → 使用教程,打开完整帮助页面,包含配置格式、按键名参考、示例</p>
+        </div>
+    </div>
+</section>
+
+<section id="config-example">
+    <h2>配置示例</h2>
+    <div class="tip">两种写法:字符串值 = 按键重映射;对象值 = 自定义操作(type + target)。配置文件在 macOS 为 ~/.keyboarddrop/config.json</div>
+    <div class="code-block">
+<pre><code>{
+  "mappings": {
+    "caps_lock": "escape",
+    "right_command": "left_control",
+    "f5": { "type": "command", "target": "open -a 'Activity Monitor'" },
+    "f6": { "type": "screenshot", "target": "region" },
+    "f7": { "type": "volume", "target": "mute" },
+    "f8": { "type": "media", "target": "play" },
+    "f9": { "type": "system", "target": "lock" },
+    "f10": { "type": "url", "target": "https://github.com" },
+    "f11": { "type": "text", "target": "my-email@gmail.com" }
+  }
+}</code></pre>
+    </div>
+</section>
+
+<section id="faq">
+    <h2>常见问题</h2>
+    <div class="faq-item">
+        <h3>Q: 按下映射键没反应?</h3>
+        <p>A: 检查辅助功能权限是否已授予。菜单栏 → 打开辅助功能设置,启用 KeyboardDrop。权限已开但仍无效,尝试「重载配置」。</p>
+    </div>
+    <div class="faq-item">
+        <h3>Q: caps_lock 映射不稳定?</h3>
+        <p>A: macOS 对 caps_lock 有特殊底层处理,CGEventTap 无法完美拦截。如需完美 caps_lock 映射,建议使用 Karabiner-Elements。</p>
+    </div>
+    <div class="faq-item">
+        <h3>Q: 修改配置后如何生效?</h3>
+        <p>A: 菜单栏 → 重载配置,或菜单栏 → 设置... → 保存并应用。两种方式都立即生效,无需重启。</p>
+    </div>
+    <div class="faq-item">
+        <h3>Q: 如何切换中英文?</h3>
+        <p>A: 菜单栏点击键盘图标 → 选择「Switch to English」或「切换为中文」即可切换界面语言。</p>
+    </div>
+</section>
+
+<div class="footer">
+    <p>KeyboardDrop v1.3.0 · 基于 CGEventTap / WH_KEYBOARD_LL · <a href="https://github.com/parwin889-ui/keyboarddrop">digipod.cn</a></p>
+</div>
+
+</body>
+</html>
