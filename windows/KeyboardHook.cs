@@ -121,11 +121,3 @@ public class KeyboardHook : IDisposable
         Stop();
     }
 }
-
-internal static class NativeMethods
-{
-    public const uint KEYEVENTF_KEYUP = 0x0002;
-
-    [DllImport("user32.dll")]
-    public static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, IntPtr dwExtraInfo);
-}
