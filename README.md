@@ -2,6 +2,8 @@
 
 轻量级键盘按键重映射工具，支持 macOS、Windows 和 Linux。
 
+> 🌐 **官方网站：** [digipod.cn/keyboarddrop/qaq](https://digipod.cn/keyboarddrop/qaq/)
+
 ## 功能特性
 
 - 全局键盘按键重映射
