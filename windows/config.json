@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "caps_lock": "escape",
+    "right_win": "left_control",
+    "f5": { "type": "command", "target": "notepad" },
+    "f6": { "type": "screenshot", "target": "full" },
+    "f7": { "type": "volume", "target": "mute" },
+    "f8": { "type": "media", "target": "play" },
+    "f9": { "type": "system", "target": "lock" },
+    "f10": { "type": "url", "target": "https://github.com" }
+  }
+}

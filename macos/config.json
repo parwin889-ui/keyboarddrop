@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "caps_lock": "escape",
+    "right_command": "left_control",
+    "f5": { "type": "command", "target": "open -a 'Activity Monitor'" },
+    "f6": { "type": "screenshot", "target": "region" },
+    "f7": { "type": "volume", "target": "mute" },
+    "f8": { "type": "media", "target": "play" },
+    "f9": { "type": "system", "target": "lock" },
+    "f10": { "type": "url", "target": "https://github.com" }
+  }
+}

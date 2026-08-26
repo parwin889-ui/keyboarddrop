@@ -1,0 +1,53 @@
+# macOS build artifacts
+*.dmg
+*.app
+*.build/
+.build/
+DerivedData/
+*.xcodeproj/
+*.xcworkspace/
+
+# Windows build artifacts
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.user
+
+# Swift build artifacts
+.swiftpm/
+Package.resolved
+*.o
+*.out
+
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test binaries
+test_action
+test_actions_v2
+test_custom
+test_remapping
+keyboarddrop
